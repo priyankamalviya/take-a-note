@@ -24508,9 +24508,9 @@
 
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(211);
-	var Home = __webpack_require__(212);
+	var Home = __webpack_require__(213);
 
-	var Profile = __webpack_require__(213);
+	var Profile = __webpack_require__(214);
 	var Router = __webpack_require__(159);
 	var Route = Router.Route;
 	var IndexRoute = Router.IndexRoute;
@@ -24526,29 +24526,30 @@
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
+	var SearchGithub = __webpack_require__(212);
 
 	var Main = React.createClass({
-	  displayName: "Main",
+	  displayName: 'Main',
 
 	  render: function render() {
 	    return React.createElement(
-	      "div",
-	      { className: "main-container" },
+	      'div',
+	      { className: 'main-container' },
 	      React.createElement(
-	        "nav",
-	        { className: "navbar navbar-default", role: "navigation" },
+	        'nav',
+	        { className: 'navbar navbar-default', role: 'navigation' },
 	        React.createElement(
-	          "div",
-	          { className: "col-sm-7 col-sm-offset-2", style: { marginTop: 15 } },
-	          "MENU"
+	          'div',
+	          { className: 'col-sm-7 col-sm-offset-2', style: { marginTop: 15 } },
+	          React.createElement(SearchGithub, null)
 	        )
 	      ),
 	      React.createElement(
-	        "div",
-	        { className: "container" },
+	        'div',
+	        { className: 'container' },
 	        this.props.children
 	      )
 	    );
@@ -24559,6 +24560,55 @@
 
 /***/ },
 /* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var Router = __webpack_require__(159);
+
+	var SearchGithub = React.createClass({
+	  displayName: 'SearchGithub',
+
+	  mixins: [Router.History],
+	  getRef: function getRef(ref) {
+	    this.usernameRef = ref;
+	  },
+	  handleSubmit: function handleSubmit() {
+	    var username = this.usernameref.value;
+	    this.usernameRef.value = '';
+	    this.history.pushState(null, "profile/" + username);
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'col-sm-12' },
+	      React.createElement(
+	        'form',
+	        { onSubmit: this.handleSubmit },
+	        React.createElement(
+	          'div',
+	          { className: 'form-group col-sm-7' },
+	          React.createElement('input', { type: 'text', className: 'form-control', ref: this.getRef })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'form-group col-sm-5' },
+	          React.createElement(
+	            'button',
+	            { type: 'submit', className: 'btn btn-primary' },
+	            'Search Github'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = SearchGithub;
+
+/***/ },
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24580,7 +24630,7 @@
 	module.exports = Home;
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24588,12 +24638,12 @@
 	var React = __webpack_require__(1);
 	var Router = __webpack_require__(159);
 
-	var Repos = __webpack_require__(214);
-	var UserProfile = __webpack_require__(215);
+	var Repos = __webpack_require__(215);
+	var UserProfile = __webpack_require__(216);
 
-	var Notes = __webpack_require__(216);
-	var ReactFireMixin = __webpack_require__(219);
-	var Firebase = __webpack_require__(220);
+	var Notes = __webpack_require__(217);
+	var ReactFireMixin = __webpack_require__(220);
+	var Firebase = __webpack_require__(221);
 
 	var Profile = React.createClass({
 	  displayName: 'Profile',
@@ -24650,7 +24700,7 @@
 	module.exports = Profile;
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24681,7 +24731,7 @@
 	module.exports = Repos;
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24724,14 +24774,14 @@
 	module.exports = UserProfile;
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var NotesList = __webpack_require__(217);
-	var AddNote = __webpack_require__(218);
+	var NotesList = __webpack_require__(218);
+	var AddNote = __webpack_require__(219);
 
 	var Notes = React.createClass({
 	  displayName: 'Notes',
@@ -24762,7 +24812,7 @@
 	module.exports = Notes;
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24793,7 +24843,7 @@
 	module.exports = NotesList;
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24839,7 +24889,7 @@
 	module.exports = AddNote;
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -25210,7 +25260,7 @@
 
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports) {
 
 	/*! @license Firebase v2.3.2
