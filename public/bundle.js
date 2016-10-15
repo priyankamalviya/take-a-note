@@ -24592,8 +24592,8 @@
 	var UserProfile = __webpack_require__(215);
 
 	var Notes = __webpack_require__(216);
-	var ReactFireMixin = __webpack_require__(217);
-	var Firebase = __webpack_require__(218);
+	var ReactFireMixin = __webpack_require__(218);
+	var Firebase = __webpack_require__(219);
 
 	var Profile = React.createClass({
 	  displayName: 'Profile',
@@ -24653,6 +24653,10 @@
 	var Repos = React.createClass({
 	  displayName: 'Repos',
 
+	  propTypes: {
+	    username: React.PropTypes.string.isRequired,
+	    repos: React.PropTypes.array.isRequired
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -24679,6 +24683,11 @@
 
 	var UserProfile = React.createClass({
 	  displayName: 'UserProfile',
+
+	  propTypes: {
+	    username: React.PropTypes.string.isRequired,
+	    bio: React.PropTypes.object.isRequired
+	  },
 
 	  render: function render() {
 	    return React.createElement(
@@ -24714,11 +24723,15 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var NotesList = __webpack_require__(219);
+	var NotesList = __webpack_require__(217);
 
 	var Notes = React.createClass({
 	  displayName: 'Notes',
 
+	  propTypes: {
+	    username: React.PropTypes.string.isRequired,
+	    notes: React.PropTypes.array.isRequired
+	  },
 	  render: function render() {
 	    console.log('Notes', this.props.notes);
 	    return React.createElement(
@@ -24739,6 +24752,37 @@
 
 /***/ },
 /* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var NotesList = React.createClass({
+	  displayName: 'NotesList',
+
+	  render: function render() {
+	    var notes = this.props.notes.map(function (note, index) {
+	      return React.createElement(
+	        'li',
+	        { className: 'list-group-item', key: index },
+	        ' ',
+	        note['.value'],
+	        ' '
+	      );
+	    });
+	    return React.createElement(
+	      'ul',
+	      { className: 'list-group' },
+	      notes
+	    );
+	  }
+	});
+
+	module.exports = NotesList;
+
+/***/ },
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -25109,7 +25153,7 @@
 
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports) {
 
 	/*! @license Firebase v2.3.2
@@ -25381,37 +25425,6 @@
 
 	module.exports = Firebase;
 
-
-/***/ },
-/* 219 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var NotesList = React.createClass({
-	  displayName: 'NotesList',
-
-	  render: function render() {
-	    var notes = this.props.notes.map(function (note, index) {
-	      return React.createElement(
-	        'li',
-	        { className: 'list-group-item', key: index },
-	        ' ',
-	        note['.value'],
-	        ' '
-	      );
-	    });
-	    return React.createElement(
-	      'ul',
-	      { className: 'list-group' },
-	      notes
-	    );
-	  }
-	});
-
-	module.exports = NotesList;
 
 /***/ }
 /******/ ]);
