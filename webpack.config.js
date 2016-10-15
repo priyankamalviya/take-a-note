@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./app/components/Main.js",
+  entry: "./app/App.js",
   output: {
     filename: "public/bundle.js"
   },
@@ -12,7 +12,7 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
-      }  
+      }
     ]
   }
 }
