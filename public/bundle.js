@@ -24575,7 +24575,7 @@
 	    this.usernameRef = ref;
 	  },
 	  handleSubmit: function handleSubmit() {
-	    var username = this.usernameref.value;
+	    var username = this.usernameRef.value;
 	    this.usernameRef.value = '';
 	    this.history.pushState(null, "profile/" + username);
 	  },
@@ -24596,7 +24596,7 @@
 	          { className: 'form-group col-sm-5' },
 	          React.createElement(
 	            'button',
-	            { type: 'submit', className: 'btn btn-primary' },
+	            { type: 'submit', className: 'btn btn-block btn-primary' },
 	            'Search Github'
 	          )
 	        )
@@ -24652,7 +24652,7 @@
 	  mixins: [ReactFireMixin],
 	  getInitialState: function getInitialState() {
 	    return {
-	      notes: [],
+	      notes: [1, 2, 3],
 	      bio: {},
 	      repos: []
 	    };
@@ -24721,8 +24721,42 @@
 	    repos: React.PropTypes.array.isRequired
 	  },
 	  render: function render() {
-	    console.log("REPOS:", this.props.repos);
-	    return React.createElement("div", null);
+	    var repos = this.props.repos.map(function (repo, index) {
+	      return React.createElement(
+	        "li",
+	        { className: "list-group-item", key: index },
+	        repo.html_url && React.createElement(
+	          "h4",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: repo.html_url },
+	            repo.name
+	          )
+	        ),
+	        repo.description && React.createElement(
+	          "p",
+	          null,
+	          " ",
+	          repo.description
+	        )
+	      );
+	    });
+	    //console.log("REPOS:", this.props.repos);
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "h3",
+	        null,
+	        "User Repos "
+	      ),
+	      React.createElement(
+	        "ul",
+	        { className: "list-group" },
+	        repos
+	      )
+	    );
 	  }
 	});
 
@@ -24745,21 +24779,51 @@
 	  },
 
 	  render: function render() {
-	    console.log("BIO", this.props.bio);
 	    return React.createElement(
 	      "div",
 	      null,
-	      React.createElement(
-	        "p",
-	        null,
-	        "USER PROFILE!"
+	      this.props.bio.avatar_url && React.createElement(
+	        "li",
+	        { className: "list-group-item" },
+	        " ",
+	        React.createElement("img", { src: this.props.bio.avatar_url, className: "img-rounded img-responsive" })
 	      ),
-	      React.createElement(
-	        "p",
-	        null,
-	        "Username: ",
-	        this.props.username
-	      )
+	      this.props.bio.name && React.createElement(
+	        "li",
+	        { className: "list-group-item" },
+	        " Name: ",
+	        this.props.bio.name
+	      ),
+	      this.props.bio.email && React.createElement(
+	        "li",
+	        { className: "list-group-item" },
+	        "Email: ",
+	        this.props.bio.email
+	      ),
+	      this.props.bio.location && React.createElement(
+	        "li",
+	        { className: "list-group-item" },
+	        "Location: ",
+	        this.props.bio.location
+	      ),
+	      this.props.bio.public_repos && React.createElement(
+	        "li",
+	        { className: "list-group-item" },
+	        "Public Repos: ",
+	        this.props.bio.public_repos
+	      ),
+	      this.props.bio.followers > 0 ? React.createElement(
+	        "li",
+	        { className: "list-group-item" },
+	        "Followers: ",
+	        this.props.bio.followers
+	      ) : "",
+	      this.props.bio.following > 0 ? React.createElement(
+	        "li",
+	        { className: "list-group-item" },
+	        "Following: ",
+	        this.props.bio.following
+	      ) : ""
 	    );
 	  }
 	});
@@ -25540,7 +25604,7 @@
 
 	function getUserInfo(username) {
 	  return axios.get('https://api.github.com/users/' + username);
-	}
+	};
 
 	//using a promise
 	var helpers = {

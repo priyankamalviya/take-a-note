@@ -13,7 +13,7 @@ var Profile = React.createClass({
   mixins:[ReactFireMixin],
   getInitialState: function(){
     return{
-      notes:[],
+      notes:[1,2,3],
       bio:{},
       repos:[]
     }
@@ -24,7 +24,7 @@ var Profile = React.createClass({
     this.bindAsArray(childRef, 'notes');
 
     helpers.getGithubInfo(this.props.params.username)
-      .then(function(data){
+    .then(function(data){
         this.setState({
           bio: data.bio,
           repos: data.repos
