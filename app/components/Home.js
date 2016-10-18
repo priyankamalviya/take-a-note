@@ -1,13 +1,12 @@
-var React=require('react');
+import React from 'react';
 
-var Home= React.createClass({
-  render: function(){
-    return(
-      <h2 className="text-center">
-      Search by Github User Name Above.
-      </h2>
-    )
-  }
-});
+const Home = () => {
+  return(
+    <h2 className="text-center">
+    Search by Github User Name Above.
+    </h2>
+  )
+}
 
-module.exports = Home;
+
+export default Home;
