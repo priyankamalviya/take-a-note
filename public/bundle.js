@@ -24764,6 +24764,8 @@
 	  authDomain: "githubnotes-47071.firebaseapp.com",
 	  databaseURL: 'https://githubnotes-47071.firebaseio.com',
 	  storageBucket: "githubnotes-47071.appspot.com"
+	  //databaseURL:'https://github-note-taker.firebaseio.com/'
+	  //databaseURL: 'https://githubnotes-47071.firebaseio.com'
 	});
 
 	var Profile = function (_React$Component) {
@@ -25054,11 +25056,11 @@
 	    _react2.default.createElement(
 	      'h3',
 	      null,
-	      'Notes for ',
-	      username
+	      ' Notes for ',
+	      username,
+	      ' '
 	    ),
-	    _react2.default.createElement(_AddNote2.default, { username: username,
-	      addNote: addNote }),
+	    _react2.default.createElement(_AddNote2.default, { username: username, addNote: addNote }),
 	    _react2.default.createElement(_NotesList2.default, { notes: notes })
 	  );
 	};
@@ -25141,8 +25143,8 @@
 	  }
 
 	  _createClass(AddNote, [{
-	    key: 'handleSubit',
-	    value: function handleSubit() {
+	    key: 'handleSubmit',
+	    value: function handleSubmit() {
 	      var newNote = this.note.value;
 	      this.note.value = '';
 	      this.props.addNote(newNote);
@@ -25160,10 +25162,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'input-group' },
-	        _react2.default.createElement('input', { type: 'text',
-	          className: 'form-control',
-	          placeholder: 'Add New Note',
-	          ref: function ref(_ref) {
+	        _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Add New Note', ref: function ref(_ref) {
 	            return _this2.setRef(_ref);
 	          } }),
 	        _react2.default.createElement(

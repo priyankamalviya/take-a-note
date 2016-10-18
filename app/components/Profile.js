@@ -11,6 +11,8 @@ apiKey: "AIzaSyBmxdZ-aStjDFUbimbnVYMISbB9dKLxXpM",
 authDomain: "githubnotes-47071.firebaseapp.com",
 databaseURL: 'https://githubnotes-47071.firebaseio.com',
 storageBucket: "githubnotes-47071.appspot.com"
+//databaseURL:'https://github-note-taker.firebaseio.com/'
+//databaseURL: 'https://githubnotes-47071.firebaseio.com'
 });
 
 class Profile extends React.Component{

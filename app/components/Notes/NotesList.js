@@ -10,5 +10,4 @@ const NotesList = ({notes}) => {
   )
 }
 
-
 export default NotesList;

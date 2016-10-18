@@ -5,11 +5,10 @@ import AddNote from './AddNote';
 const Notes = ({username, notes, addNote}) =>{
   return(
     <div>
-    <h3>Notes for {username}</h3>
-    <AddNote username={username}
-    addNote={addNote} />
-      <NotesList notes={notes}/>
-    </div>
+        <h3> Notes for {username} </h3>
+        <AddNote username={username} addNote={addNote} />
+        <NotesList notes={notes} />
+      </div>
   )
 }
 
