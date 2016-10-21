@@ -24571,12 +24571,16 @@
 	  var history = _ref.history;
 	  var children = _ref.children;
 
+	  var header = {
+	    backgroundColor: "rgba(255,255,255,0.5)",
+	    border: "none"
+	  };
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'main-container' },
 	    _react2.default.createElement(
 	      'nav',
-	      { className: 'navbar navbar-default', role: 'navigation' },
+	      { style: header, className: 'navbar navbar-default', role: 'navigation' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'col-sm-7 col-sm-offset-2', style: { marginTop: 15 } },
@@ -24881,12 +24885,26 @@
 	var Repos = function Repos(_ref) {
 	  var repos = _ref.repos;
 
+	  var headerStyle = {
+	    fontSize: 30,
+	    color: "#fff",
+	    textTransform: "uppercase",
+	    fontWeight: 300,
+	    textAlign: "center",
+	    marginBottom: 15
+	  },
+	      contentColor = {
+	    background: "transparent"
+	  },
+	      pStyle = {
+	    color: "#fff"
+	  };
 	  return _react2.default.createElement(
 	    "div",
 	    null,
 	    _react2.default.createElement(
 	      "h3",
-	      null,
+	      { style: headerStyle },
 	      "User Repos "
 	    ),
 	    _react2.default.createElement(
@@ -24895,7 +24913,7 @@
 	      repos.map(function (repo, index) {
 	        return _react2.default.createElement(
 	          "li",
-	          { className: "list-group-item", key: index },
+	          { style: contentColor, className: "list-group-item", key: index },
 	          repo.html_url && _react2.default.createElement(
 	            "h4",
 	            null,
@@ -24907,7 +24925,7 @@
 	          ),
 	          repo.description && _react2.default.createElement(
 	            "p",
-	            null,
+	            { style: pStyle },
 	            " ",
 	            repo.description
 	          )
@@ -24943,66 +24961,70 @@
 	var UserProfile = function UserProfile(_ref) {
 	  var bio = _ref.bio;
 
+	  var contentColor = {
+	    background: "transparent",
+	    color: "#fff"
+	  };
 	  return _react2.default.createElement(
 	    "div",
 	    null,
 	    bio.avatar_url && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      " ",
 	      _react2.default.createElement("img", { src: bio.avatar_url, className: "img-rounded img-responsive" })
 	    ),
 	    bio.name && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Name: ",
 	      bio.name
 	    ),
 	    bio.login && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Username: ",
 	      bio.login
 	    ),
 	    bio.email && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Email: ",
 	      bio.email
 	    ),
 	    bio.location && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Location: ",
 	      bio.location
 	    ),
 	    bio.company && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Company: ",
 	      bio.company
 	    ),
 	    bio.followers && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Followers: ",
 	      bio.followers
 	    ),
 	    bio.following && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Following: ",
 	      bio.following
 	    ),
 	    bio.following && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Public Repos: ",
 	      bio.public_repos
 	    ),
 	    bio.blog && _react2.default.createElement(
 	      "li",
-	      { className: "list-group-item" },
+	      { style: contentColor, className: "list-group-item" },
 	      "Blog: ",
 	      _react2.default.createElement(
 	        "a",
@@ -25050,12 +25072,20 @@
 	  var notes = _ref.notes;
 	  var addNote = _ref.addNote;
 
+	  var headerStyle = {
+	    fontSize: 30,
+	    color: "#fff",
+	    textTransform: "uppercase",
+	    fontWeight: 300,
+	    textAlign: "center",
+	    marginBottom: 15
+	  };
 	  return _react2.default.createElement(
 	    'div',
 	    null,
 	    _react2.default.createElement(
 	      'h3',
-	      null,
+	      { style: headerStyle },
 	      ' Notes for ',
 	      username,
 	      ' '
@@ -25092,13 +25122,17 @@
 	var NotesList = function NotesList(_ref) {
 	  var notes = _ref.notes;
 
+	  var contentColor = {
+	    background: "transparent",
+	    color: "#fff"
+	  };
 	  return _react2.default.createElement(
 	    "ul",
 	    { className: "list-group" },
 	    notes.map(function (note, index) {
 	      return _react2.default.createElement(
 	        "li",
-	        { className: "list-group-item", key: index },
+	        { style: contentColor, className: "list-group-item", key: index },
 	        " ",
 	        note,
 	        " "
@@ -25159,18 +25193,22 @@
 	    value: function render() {
 	      var _this2 = this;
 
+	      var contentColor = {
+	        background: "transparent",
+	        color: "#fff"
+	      };
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'input-group' },
-	        _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Add New Note', ref: function ref(_ref) {
+	        _react2.default.createElement('input', { style: contentColor, type: 'text', className: 'form-control', placeholder: 'Add New Note', ref: function ref(_ref) {
 	            return _this2.setRef(_ref);
 	          } }),
 	        _react2.default.createElement(
 	          'span',
-	          { className: 'input-group-btn' },
+	          { style: contentColor, className: 'input-group-btn' },
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'btn btn-default', type: 'button', onClick: function onClick() {
+	            { style: contentColor, className: 'btn btn-default', type: 'button', onClick: function onClick() {
 	                return _this2.handleSubmit();
 	              } },
 	            'Submit'

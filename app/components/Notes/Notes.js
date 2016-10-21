@@ -3,9 +3,17 @@ import NotesList from './NotesList';
 import AddNote from './AddNote';
 
 const Notes = ({username, notes, addNote}) =>{
+  var headerStyle={
+    fontSize: 30,
+     color: "#fff",
+     textTransform: "uppercase",
+     fontWeight: 300,
+     textAlign: "center",
+     marginBottom: 15,
+  }
   return(
     <div>
-        <h3> Notes for {username} </h3>
+        <h3 style={headerStyle}> Notes for {username} </h3>
         <AddNote username={username} addNote={addNote} />
         <NotesList notes={notes} />
       </div>
