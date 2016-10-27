@@ -11,7 +11,8 @@ Built using:
 [firebase](https://firebase.google.com/),
 [webpack](https://webpack.github.io) and
 [re-base](https://github.com/tylermcginnis/re-base) library.
-The application is hosted on Firebase and can be accessed at https://githubnotes-47071.firebaseapp.com/.
+
+[LIVE PREVIEW](https://githubnotes-47071.firebaseapp.com/)
 
 Installation
 -------------
