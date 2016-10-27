@@ -17,11 +17,11 @@ Installation
 -------------
 
 * Install ReactJS, React-router and babel, the JavaScript transpiler.
---
+
 `$ npm install --save react@0.14.3`
---
+
 `$ npm install --save react-dom@0.14.3` 
---
+
 `$ npm install --save-dev babel-core@6.3.13 babel-loader@6.2.0 babel-preset-es2015@6.3.13 babel-preset-react@6.3.13`
 
 * Install webpack, the module bundler for this application.
