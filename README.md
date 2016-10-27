@@ -25,14 +25,18 @@ Installation
 `$ npm install --save-dev babel-core@6.3.13 babel-loader@6.2.0 babel-preset-es2015@6.3.13 babel-preset-react@6.3.13`
 
 * Install webpack, the module bundler for this application.
+
 `$ npm install webpack -w`
 
 * Install react-router for URL routing, axios for sending and receiving requests over HTTP and firebase, which will save our data.
 `$ npm install --save react-router history`
+
 `$ npm install --save axios@0.8.0`
+
 `$ npm install --save firebase@2.3.2`
 
 * Install re-base, a JS library to build ReactJS applications using Firebase.
+
 `$ npm install re-base`
 
 Execution
